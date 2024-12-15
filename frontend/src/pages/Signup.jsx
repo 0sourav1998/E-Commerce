@@ -150,7 +150,7 @@ const Signup = () => {
 
       <div className="flex justify-center items-center max-w-lg w-full">
         <img
-          src={cart}
+          src="https://cdn.pixabay.com/photo/2016/10/10/14/46/icon-1728552_640.jpg"
           alt="Shopping Cart"
           className="w-full h-full rounded-lg shadow-xl shadow-black"
         />
