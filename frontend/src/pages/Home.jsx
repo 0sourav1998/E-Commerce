@@ -82,20 +82,16 @@ const Home = () => {
     return true;
   };
 
-  // Filter products
   const filteredProducts = allProducts?.filter(
     (product) => filterByPrice(product) && filterByCategory(product)
   );
 
-  // Show filtered products if available, else fall back to all products
   const currentItems = filteredProducts?.length > 0 ? filteredProducts : allProducts;
 
-  // Paginate the current items
   const totalPages = Math.ceil(currentItems?.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  // Paginated items to display
   const paginatedItems = currentItems?.slice(startIndex, endIndex);
 
   const handlePageChange = (page) => {
@@ -138,7 +134,6 @@ const Home = () => {
           </div>
 
           <div>
-            {/* No Results Found message */}
             {paginatedItems?.length === 0 ? (
               <p className="text-center text-lg font-semibold text-gray-600">
                 No results found
@@ -179,7 +174,6 @@ const Home = () => {
               </div>
             )}
 
-            {/* Pagination */}
             {paginatedItems?.length > 0 && (
               <div className="flex justify-center items-center mt-8 space-x-2">
                 <button

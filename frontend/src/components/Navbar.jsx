@@ -16,7 +16,7 @@ import toast from "react-hot-toast";
 import Cart from "./Cart";
 
 const Navbar = () => {
-  const { user, isAdmin } = useSelector((state) => state.user);
+  const { user, isAdmin , token } = useSelector((state) => state.user);
   const fullName = `${user?.firstName || ""} ${user?.lastName || ""}`.trim();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -57,6 +57,12 @@ const Navbar = () => {
         ))}
       </div>
       <div className="flex gap-8 items-center">
+        {
+          !token && <div className="flex gap-4 items-center">
+            <button onClick={()=>navigate("/login")} className="bg-blue-500 p-2 rounded-md hover:bg-blue-700 transition-all duration-200 text-white">Login</button>
+            <button onClick={()=>navigate("/signup")} className="bg-green-500 p-2 rounded-md hover:bg-green-700 transition-all duration-200 text-white">Signup</button>
+          </div>
+        }
         {isAdmin === false && <Cart />}
         {user && (
           <Popover>
